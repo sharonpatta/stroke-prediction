@@ -15,6 +15,34 @@ This is an R Markdown document. Markdown is a simple formatting syntax for autho
 
 When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
 
+```{r}
+library(tidyverse)
+```
+
+
+```{r}
+read.csv("/Users/seokhwanhong/Desktop/Statistics/Project/Project 2/healthcare-dataset-stroke-data.csv") -> data_set
+```
+
+```{r}
+filter(data_set, bmi != 'N/A') -> data_set
+```
+
+```{r}
+as.numeric(data_set$bmi) -> data_set$bmi
+```
+
+
+
+```{r}
+mod = lm(stroke ~ bmi + age + bmi*age, data = data_set)
+summary(mod)
+```
+
+
+
+
+
 ```{r cars}
 summary(cars)
 ```
