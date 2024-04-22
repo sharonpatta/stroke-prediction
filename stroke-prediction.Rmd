@@ -35,11 +35,14 @@ as.numeric(data_set$bmi) -> data_set$bmi
 
 
 ```{r}
-mod = lm(stroke ~ bmi + age + bmi*age, data = data_set)
+mod = lm(stroke ~ bmi + age + avg_glucose_level + bmi*age*avg_glucose_level, data = data_set)
 summary(mod)
 ```
 
 
+```{r}
+chisq.test(x = data_set$smoking, y = data_set$stroke)
+```
 
 
 
